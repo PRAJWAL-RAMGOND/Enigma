@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: Black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+form {
+            background-color: yellow;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button[type="reset"] {
+            background-color: #f44336;
+        }
+
+        button[type="reset"]:hover {
+            background-color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="f_pratice2.html">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone Number:</label>
+        <div style="display: flex;">
+            <select id="countryCode" name="countryCode" style="flex: 0.3;">
+                <!-- Add your country codes here -->
+                <option value="+1">+1 (US)</option>
+                <option value="+44">+44 (UK)</option>
+<option value="+61">+61 (AUS)</option>
+<option value="+7">+7 (RUS)</option>
+<option value="+91">+91 (IN)</option>
+                <!-- Add more options as needed -->
+            </select>
+            <input type="tel" id="phone" name="phone" style="flex: 0.7;" required>
+        </div>
+
+        <label>Gender:</label>
+        <div style="display: flex;">
+            <input type="radio" id="male" name="gender" value="male" required checked>
+            <label for="male" style="margin-right: 10px;">Male</label>
+            
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Female</label>
+<input type="radio" id="others" name="gender" value="others" required>
+            <label for="others">Others</label>
+        </div>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+</body>
+</html>

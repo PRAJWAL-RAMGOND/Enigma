@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student UI</title>
+  <link rel="stylesheet" href="ui1.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Student UI</h1>
+    </div>
+    <div class="content">
+      <form action="https://sheetdb.io/api/v1/ll0r88ovm7845" method="post" id="sheetdb-form"">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" name="name">
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" name="email">
+        <br>
+        <label for="phone">Phone:</label>
+        <input type="tel" name="phone" id="phone" name="phone">
+        <br>
+        <label for="address">Address:</label>
+        <textarea name="address" id="address" name="address"></textarea>
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+      <script>
+        var form = document.getElementById('sheetdb-form');
+     form.addEventListener("submit", e => {
+      e.preventDefault();
+      fetch(form.action, {
+          method : "POST",
+          body: new FormData(document.getElementById("sheetdb-form")),
+      }).then(
+          response => response.json()
+      ).then((html) => {
+        // you can put any JS code here
+        window.open('enigma_5.html','_blank');
+
+      });
+    });
+      </script>
+    </div>
+  </div>
+</body>
+</html>

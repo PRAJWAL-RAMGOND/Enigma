@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Portal</title>
+    <link rel="stylesheet" href="samp1.css">
+</head>
+<body>
+    <div class="background"></div>
+    <header>
+        <h1>Teacher Schedule</h1>
+    </header>
+    <main>
+        <form id="classForm">
+            <label for="className">Class Name:</label>
+            <input type="text" id="className" name="className" required>
+
+            <label for="studentName">Student Name:</label>
+            <input type="text" id="studentName" name="studentName" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" required>
+
+            <button type="button" onclick="initiateClass()">Initiate Class</button>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

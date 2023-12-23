@@ -1,0 +1,57 @@
+<html>
+<head>
+<title>Registration form</title>
+</head>
+<body bgcolor="red">
+<form action="insert.php" method="POST">
+<center>
+<table border=5 bordercolor="blue" bgcolor="yellow" cellspacing=5 cellpadding=5 width=500 height=100>
+<caption><b><i><font size=25>Registration Form</font></i></b></caption>
+<br> 
+<tr>
+<th>First Name: </th>
+<th><input type="text" placeholder="eg.Alice" id="fname" name="fname" required></th>
+</tr>
+<tr>
+<th>Last Name: </th>
+<th><input type="text" placeholder="eg.Smith" id="lname" name="lname" required></th>
+</tr>
+<tr>
+<th>Age: </th>
+<th><input type="text" id="age" name="age" required></th>
+</tr>
+<tr>
+<th>Date Of Birth: </th>
+<th><input type="date" id="DOB" name="DOB" reqired></th>
+</tr>
+<tr>
+<th>Gender: </th>
+<th>
+<input type="radio" name="gender" value="m" required>Male
+<input type="radio" name="gender" value="f">Female
+<input type="radio" name="gender" value="o">Others
+</th>
+</tr>
+<tr>
+<th>Email: </th>
+<th><input type="text" placeholder="eg.abcd@gmail.com" id="email" name="email" required></th>
+</tr>
+<tr>
+<th>Phone: </th>
+<th><input type="text" id="phone" name="phone" required></th>
+</tr>
+<tr>
+    <th>Password: </th>
+    <th><input type="password" id="pass" name="pass" required></th>
+    </tr>
+<tr>
+<th>Submit or Reset</th>
+<th><input type="submit" >
+<input type="reset"></th>
+</tr>
+</table>
+</center>
+</form>
+<marquee><font size=5><b><u>Note:</u>This form once submitted cannot be undone</b></marquee>
+</body>
+</html>

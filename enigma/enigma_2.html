@@ -1,0 +1,323 @@
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Login Page</h1>
+    </div>
+    <div class="form">
+      <form action="login.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <br>
+        <input type="submit" value="Login">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+css
+/* CSS for the login page */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #008080;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.form {
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #008080;
+  color: #ffffff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #006666;
+}
+
+
+php
+<?php
+// Connect to the database
+$mysqli = new mysqli("localhost", "root", "", "login");
+
+// Check if the user is already logged in
+if (isset($_SESSION['username'])) {
+  // Redirect the user to the home page
+  header("Location: home.php");
+  exit;
+}
+
+// Check if the login form has been submitted
+if (isset($_POST['username'])) {
+  // Get the username and password from the form
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+
+  // Query the database to see if the user exists
+  $stmt = $mysqli->prepare("SELECT * FROM users WHERE username = ? AND password = ?");
+  $stmt->bind_param("ss", $username, $password);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  // If the user exists, log them in
+  if ($result->num_rows == 1) {
+    // Start a session for the user
+    session_start();
+
+    // Store the user's username in the session
+    $_SESSION['username'] = $username;
+
+    // Redirect the user to the home page
+    header("Location: home.php");
+    exit;
+  } else {
+    // Display an error message
+    echo "<p>Invalid username or password.</p>";
+  }
+}
+?>
+﻿ html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Signup Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Login and Signup Page</h1>
+    </div>
+    <div class="buttons">
+      <a href="login.html" class="login-button">Login</a>
+      <a href="signup.html" class="signup-button">Signup</a>
+      <a href="about.html" class="about-button">About Us</a>
+      <a href="feedback.html" class="feedback-button">Feedback</a>
+    </div>
+  </div>
+</body>
+</html>
+
+
+css
+/* CSS for the home page */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #008080;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+a:hover {
+  background-color: #006666;
+  color: #ffffff;
+}
+
+
+html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Signup Page</h1>
+    </div>
+    <div class="form">
+      <form action="signup.php" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <label for="gender">Gender:</label>
+        <select name="gender" id="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <br>
+        <input type="submit" value="Signup">
+      </form>
+    </div>
+  </div>
+</body>
+</html>
+
+
+css
+/* CSS for the signup page */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: #008080;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
+}
+
+.form {
+  padding: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: #008080;
+  color: #ffffff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #006666;
+}
+
+
+php
+<?php
+// Connect to the database
+$mysqli = new mysqli("localhost", "root", "", "login");
+
+// Check if the signup form has been submitted
+if (isset($_POST['username'])) {
+  // Get the username, password, and gender from the form
+  $username = $_POST['username'];
+  $password = $_POST['password'];
+  $gender = $_POST['gender'];
+
+  // Check if the username already exists
+  $stmt = $mysqli->prepare("SELECT * FROM users WHERE username = ?");
+  $stmt->bind_param("s", $username);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+    // Display an error message
+    echo "<p>Username already exists.</p>";
+  } else {
+    // Insert the new user into the database
+    $stmt = $mysqli->prepare("INSERT INTO users (username, password, gender) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $password, $gender);
+    $stmt->execute();
+
+    // Redirect the user to the home page
+    header("Location: home.php");
+    exit;
+  }
+}
+?>
